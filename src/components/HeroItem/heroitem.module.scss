@@ -1,0 +1,52 @@
+@import "mixins";
+
+.heroes{
+   &__item{
+      position: relative;
+      width: 100%;
+      min-height: 130px;
+      padding: 32px;
+      background-color: $hero_item;
+      img{
+         position: absolute;
+         top:53px;
+         right: 32px;
+      }
+   }
+   &__item:hover{
+      background-color: #393C46;
+   }
+
+   
+
+   &__title{
+      @include interMedium();
+      font-size: 22px;
+      color: #F2F2F2;
+      margin-bottom: 16px;
+   }
+   &__attribute{
+      @include interMedium();
+      color: #F2F2F2;
+   }
+
+   &__attributeBox{
+      display: flex;
+      flex-wrap: wrap;
+   }
+
+   &__attack{
+      display: flex;
+      flex-basis: 250px;
+   }
+
+   &__roles{
+      display: flex;
+      flex-basis: 500px;
+   }
+   &__type{
+      @include interMedium();
+      color: $attribute;
+      margin-right: 24px;
+   }
+}

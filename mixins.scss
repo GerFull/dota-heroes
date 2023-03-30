@@ -1,0 +1,17 @@
+$background-black:#151619; 
+$background-filter:#22242A; 
+$attribute:#818798;
+$hero_item:#22242A;
+
+
+@mixin interMedium() {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 500;
+}
+
+@mixin interRegular() {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+}

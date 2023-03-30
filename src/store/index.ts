@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import heroReducer from './slice/heroes'
+import filterReducer from './slice/filter'
 
 
 const store = configureStore({
    reducer: {
-      heroes: heroReducer
+      heroes: heroReducer,
+      filter: filterReducer
    },
 })
 

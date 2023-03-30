@@ -1,0 +1,48 @@
+@import "mixins";
+
+.homepage {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+
+   &__main {
+      background-color: $background-black;
+      height: 100vh;
+      flex-grow: 1;
+      padding: 56px 72px;
+   }
+
+   &__title {
+      color: white;
+      font-size: 40px;
+      @include interMedium();
+      margin-bottom: 40px;
+   }
+
+   &__filter {
+      background-color: $background-filter;
+      height: 100vh;
+      width: 392px;
+      padding: 56px 40px;
+   }
+
+   &__heroes{
+      display: flex;
+      flex-direction: column;
+      gap:16px;
+   }
+
+   &__pagination{
+      margin-top: 40px;
+      display: flex;
+      gap:25px;
+      align-items: center;
+      img{
+         cursor: pointer;
+      }
+   }
+   &__page{
+      @include interMedium();
+      color: white;
+   }
+}

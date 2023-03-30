@@ -1,0 +1,16 @@
+@import 'mixins';
+
+.heroPage{
+   width: 100vw;
+   height: 100vh;
+   background-color: $background-black;
+
+   &__back{
+      display: flex;
+      cursor: pointer;
+      p{
+         color: white;
+        
+      }
+   }
+}

@@ -10,9 +10,7 @@ import HeroPage from "./heroPage/heroPage";
 export default () => (
    <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/hero" element={<HeroPage />} />
-      {/* <Route path="/hero/:id" element={<HeroPage />} /> */}
-
+      <Route path="/:id" element={<HeroPage />} />
       <Route path="*" element={<Error />} />
    </Routes>
 )
