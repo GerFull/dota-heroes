@@ -3,14 +3,57 @@
 .heroPage{
    width: 100vw;
    height: 100vh;
+   padding: 56px 72px;
    background-color: $background-black;
 
    &__back{
       display: flex;
       cursor: pointer;
+      align-items: center;
+      gap:8px;
       p{
          color: white;
+         @include interMedium();
+        
         
       }
+   }
+
+   &__nameHero{
+      @include interMedium();
+      color: white;
+      font-size: 40px;
+      margin-top: 29px;
+      margin-bottom: 40px;
+   }
+
+
+ &__roles{
+   margin-top: 32px;
+ }
+   &__attributes{
+      display: flex;
+      flex-wrap: wrap;
+      gap:32px
+   }
+
+   &__attribute{
+      @include interMedium();
+      color: #F2F2F2;
+   }
+   &__type{
+      @include interMedium();
+      color: $attribute;
+      margin-right: 24px;
+      @media (min-width:0px) {
+         width: 150px;
+      }
+      @media (min-width:768px) {
+         width: auto;
+      }
+   }
+   &__attack{
+      display: flex;
+      flex-basis: 250px;
    }
 }
