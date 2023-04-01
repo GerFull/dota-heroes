@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, createAsyncThunk, AnyAction } from '@reduxjs/toolkit';
-import { Error, Hero } from '../../types';
+import { Error, Hero,filter } from '../../types';
 
 
 
@@ -41,11 +41,7 @@ const initialState: HeroesState = {
    page: 0
 }
 
-type filter = {
-   radioOption: string,
-   selectOptions: string[],
-   title: string
-}
+
 
 
 const heroesSlice = createSlice({

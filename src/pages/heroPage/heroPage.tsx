@@ -12,14 +12,10 @@ function HeroPage() {
    const [hero, setHero] = useState<Hero>()
 
    useEffect(() => {
-      const hero1 = heroes.find(item => item.id === Number(id))
-
-      if (hero1 !== undefined) {
-         setHero(hero1)
+      const findHero = heroes.find(item => item.id === Number(id))
+      if (findHero !== undefined) {
+         setHero(findHero)
       }
-
-
-
    })
 
 

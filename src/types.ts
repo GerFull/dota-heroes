@@ -1,5 +1,3 @@
-
-
 export interface Error {
    message: string
    name: string
@@ -23,4 +21,9 @@ export interface Hero {
    roles:string[]
    str_gain:number
 
+}
+export type filter = {
+   radioOption: string,
+   selectOptions: string[],
+   title: string
 }

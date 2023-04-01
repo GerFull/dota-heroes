@@ -1,9 +1,7 @@
-import React from 'react'
 
-interface Props {}
 
-function Error(props: Props) {
-   const {} = props
+function Error() {
+   
 
    return (
       <div>404</div>
