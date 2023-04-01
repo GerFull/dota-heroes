@@ -15,11 +15,8 @@ export interface Hero {
    base_mana:number
    base_str:number
    hero_id:number
-   icon:string
    id:number
-   img:string
    int_gain:number
-   legs:number
    localized_name:string
    move_speed:number
    primary_attr:string

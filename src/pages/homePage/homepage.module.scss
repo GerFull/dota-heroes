@@ -1,15 +1,39 @@
 @import "mixins";
 
 .homepage {
-   width: 100%;
-
-   display: flex;
-
+   position: relative;
+   display: grid;
+   grid-template-columns: auto 392px;
+   height: 100vh;
+   @media (min-width: 0px) {
+      grid-template-columns: auto;
+   }
+   @media (min-width: 768px) {
+      grid-template-columns: auto 392px;
+   }
    &__main {
       background-color: $background-black;
-      height:100vh;
-      flex-grow: 1;
-      padding: 56px 72px;
+
+      @media (min-width: 0px) {
+         padding: 32px 8px;
+      }
+      @media (min-width: 768px) {
+         padding: 56px 72px;
+      }
+   }
+
+   &__loading {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      justify-content: center;
+      background-color: $background-black;
+      align-items: center;
+      p {
+         @include interMedium();
+         color: white;
+         font-size: 50px;
+      }
    }
 
    &__input {
@@ -29,15 +53,23 @@
 
    &__filter {
       background-color: $background-filter;
-      height:100vh;
-      width: 392px;
-      padding: 56px 40px;
 
+      height: 100%;
+
+      @media (min-width: 0px) {
+         padding: 32px 8px;
+      }
+      @media (min-width: 768px) {
+         padding: 56px 40px;
+      }
       &_title {
          color: white;
          @include interRegular();
          font-size: 24px;
          margin-bottom: 24px;
+         display: flex;
+         align-items: center;
+         gap: 12px;
       }
    }
 

@@ -11,16 +11,15 @@ function App() {
 
 
   useEffect(() => {
- 
-       dispatch(fetchHeroes())
-    
+
+     dispatch(fetchHeroes())
+
   }, [])
 
 
 
   return (
-    loading ? <h2>Loading...</h2> :
-      error ? <h2>An error occured: {error}</h2> :
+
         <BrowserRouter>
           <Routes />
         </BrowserRouter>

@@ -2,8 +2,14 @@
 
 .heroPage{
    width: 100vw;
-   height: 100vh;
-   padding: 56px 72px;
+   min-height: 100vh;
+
+   @media (min-width: 0px) {
+      padding: 32px 8px;
+   }
+   @media (min-width: 768px) {
+      padding: 56px 72px;
+   }
    background-color: $background-black;
 
    &__back{
@@ -30,6 +36,9 @@
 
  &__roles{
    margin-top: 32px;
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
  }
    &__attributes{
       display: flex;

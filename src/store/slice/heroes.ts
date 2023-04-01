@@ -5,11 +5,18 @@ import { Error, Hero } from '../../types';
 
 type HeroesState = {
    heroes: Hero[];
+   filterHeroesArr:Hero[]
    loading: boolean;
    error: string | null;
    page: number;
 }
 
+function contains(where: string[], what: string[]) {
+   for (var i = 0; i < what.length; i++) {
+      if (where.indexOf(what[i]) === -1) return false;
+   }
+   return true;
+}
 
 
 export const fetchHeroes = createAsyncThunk<Hero[], undefined, { rejectValue: string }>(
@@ -20,8 +27,6 @@ export const fetchHeroes = createAsyncThunk<Hero[], undefined, { rejectValue: st
       if (!response.ok) {
          return rejectWithValue('Server Error!');
       }
-
-      console.log('loading data')
       const data = await response.json();
       return data;
    }
@@ -30,10 +35,18 @@ export const fetchHeroes = createAsyncThunk<Hero[], undefined, { rejectValue: st
 
 const initialState: HeroesState = {
    heroes: [],
+   filterHeroesArr:[],
    loading: false,
    error: null,
    page: 0
 }
+
+type filter = {
+   radioOption: string,
+   selectOptions: string[],
+   title: string
+}
+
 
 const heroesSlice = createSlice({
    name: 'Heroes',
@@ -41,6 +54,15 @@ const heroesSlice = createSlice({
    reducers: {
       cnangePage(state, action: PayloadAction<number>) {
          state.page = action.payload
+      },
+      filterHeroes(state, action: PayloadAction<filter>) {
+         state.filterHeroesArr = state.heroes.filter((elem) => {
+            if (
+               (action.payload.radioOption === '' || elem.attack_type === action.payload.radioOption) &&
+               (action.payload.selectOptions.length === 0 || contains(elem.roles, action.payload.selectOptions)) &&
+               (elem.localized_name?.toLowerCase()?.includes(action.payload.title.toLowerCase()))
+            ) return elem;
+         })
       }
    },
    extraReducers: (builder) => {
@@ -51,6 +73,7 @@ const heroesSlice = createSlice({
          })
          .addCase(fetchHeroes.fulfilled, (state, action) => {
             state.heroes = action.payload;
+            state.filterHeroesArr = action.payload;
             state.loading = false;
          })
          .addMatcher(isError, (state, action: PayloadAction<string, string, null, Error>) => {
@@ -63,7 +86,7 @@ const heroesSlice = createSlice({
 
 
 export default heroesSlice.reducer;
-export const { cnangePage } = heroesSlice.actions;
+export const { cnangePage ,filterHeroes} = heroesSlice.actions;
 
 
 function isError(action: AnyAction) {
